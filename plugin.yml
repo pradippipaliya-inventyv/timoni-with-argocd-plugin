@@ -5,12 +5,11 @@ metadata:
 spec:
   version: v0.1.0
   init:
-    command: [/bin/bash]
-    args: ["/home/argocd/init.sh"]
+    command: []
+    args: []
   generate:
-    command: [/usr/local/bin/timoni]
-    args: ["bundle", "build", "-f", "bundle.cue"]
-  discover:
-    fileName: "./bundle.cue"
-  parameters:
-    preserveFileMode: false
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        /usr/local/bin/timoni build ${ARGOCD_ENV_APP_NAME} . -f ${ARGOCD_ENV_VALUES_FILENAME}.yaml
+  preserveFileMode: false
