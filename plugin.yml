@@ -13,7 +13,7 @@ spec:
       - |
         /usr/local/bin/timoni build ${PARAM_APP_NAME} -n ${PARAM_NAMESPACE} . -f ${PARAM_VALUES_FILENAME}.yaml
   discover:
-    filename: "values-*.yaml"
+    filename: "timoni.cue"
   parameters:
     static:
       - name: app-name
